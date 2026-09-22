@@ -1,0 +1,220 @@
+﻿<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Warung Barokah — Beranda</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Poppins:wght@700;800;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="top-blessing" data-txt="blessing"><span>٭</span> ATAS BERKAT ROCHMAT ALLOH YANG MAHA KUASA <span>٭</span></div>
+
+<header>
+  <div class="container nav">
+    <a class="logo" href="index.html"><span class="logo-ico">🍚</span> Warung Barokah</a>
+    <nav class="nav-links" id="navLinks">
+      <a href="index.html" class="active">Beranda</a>
+      <a href="menu.html">Menu</a>
+      <a href="#lokasi">Lokasi</a>
+      <a href="#jadwal">Jam Buka</a>
+      <a href="https://wa.me/6281234567890">Kontak</a>
+    </nav>
+    <a class="btn" data-txt="orderBtn" href="https://wa.me/6281234567890?text=Halo%20Warung%20Barokah%2C%20saya%20mau%20pesan">🛵 Pesan Sekarang</a>
+    <button class="burger" onclick="document.getElementById('navLinks').classList.toggle('open')">☰</button>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="container hero-grid">
+    <div class="hero-text">
+      <h1 data-txt="heroTitle">Masakan <span class="hl">Rumahan Hangat</span>, Porsi Mantap, Harga Bersahabat</h1>
+      <p data-txt="heroSub">Nikmati nasi dan lauk khas Indonesia yang dimasak setiap hari dengan bahan segar. Terima makan di tempat maupun bungkus untuk dibawa pulang.</p>
+      <div class="hero-cta">
+        <a class="btn" href="menu.html">Lihat Menu & Harga</a>
+        <a class="btn ghost" href="#lokasi">Cari Lokasi</a>
+      </div>
+      <div class="hero-badges">
+        <span class="hbadge"><span class="dot">🥘</span> Dimasak Fresh Harian</span>
+        <span class="hbadge"><span class="dot">🪙</span> Harga Rakyat</span>
+        <span class="hbadge"><span class="dot">🚚</span> Bisa Diantar</span>
+      </div>
+    </div>
+    <div class="hero-photo">
+      <div class="hero-img-wrap">
+        <span id="heroEmoji">🍛</span>
+        <img id="heroImg" src="https://images.unsplash.com/photo-1512058564366-18510be2db19?w=900&q=80" alt="Nasi goreng spesial Warung Barokah" onerror="this.style.display='none';document.getElementById('heroEmoji').style.display='grid'">
+      </div>
+      <div class="float-chip chip-1">⭐ Menu Terlaris</div>
+      <div class="float-chip chip-2">Harga mulai <b>Rp 2.000</b></div>
+      <div class="float-chip chip-3">⏰ Buka <b>08.00 – 21.00</b></div>
+    </div>
+  </div>
+
+  <div class="container">
+    <div class="ticker">
+      <div class="ticker-track" id="tickerTrack"></div>
+    </div>
+  </div>
+</section>
+
+<div class="container">
+  <div class="info-strip">
+    <div class="info-card">
+      <div class="ico">🕐</div>
+      <div><h4 data-txt="infoJamTitle">Jam Buka</h4><p data-txt="infoJamText">Senin–Sabtu 08.00–21.00 · Minggu 08.00–17.00</p></div>
+    </div>
+    <div class="info-card">
+      <div class="ico">📍</div>
+      <div><h4 data-txt="infoLokTitle">Lokasi</h4><p data-txt="infoLokText">Jl. Merdeka No. 123, dekat Pasar Baru</p></div>
+    </div>
+    <div class="info-card">
+      <div class="ico">💬</div>
+      <div><h4 data-txt="infoPesanTitle">Pesan Mudah</h4><p data-txt="infoPesanText">Tersedia di tempat, bungkus, atau via WhatsApp</p></div>
+    </div>
+  </div>
+</div>
+
+<section id="spesial">
+  <div class="container">
+    <div class="sec-head reveal">
+      <span class="sec-tag" data-txt="spesialTag">Menu Spesial</span>
+      <h2 data-txt="spesialTitle">Spesial Hari Ini</h2>
+      <p data-txt="spesialSub">Menu spesial berganti setiap hari. Hari ini <span class="special-day" id="specialDay"></span> — jangan sampai kehabisan!</p>
+    </div>
+    <div id="specialCard" class="special-wrap reveal"></div>
+  </div>
+</section>
+
+<section id="lokasi">
+  <div class="container">
+    <div class="sec-head reveal">
+      <span class="sec-tag" data-txt="lokTag">Lokasi</span>
+      <h2 data-txt="lokTitle">Di Mana Kami Berjualan?</h2>
+      <p data-txt="lokSub">Mudah ditemukan, tersedia lahan parkir dan tempat duduk (lesehan & meja).</p>
+    </div>
+    <div class="loc-grid">
+      <div class="loc-info reveal">
+        <div class="loc-row">
+          <div class="ico">📍</div>
+          <div><h4>Alamat Warung</h4><p id="locAddress">Jl. Merdeka No. 123, RT 05 RW 02, Kel. Pasar Baru, Kec. Senen, Jakarta Pusat</p></div>
+        </div>
+        <div class="loc-row">
+          <div class="ico">🏠</div>
+          <div><h4>Patokan</h4><p>Samping toko bangunan & apotek, bercat oranye. Saat dekat dapat terlihat banner & spanduk.</p></div>
+        </div>
+        <div class="loc-row">
+          <div class="ico">🚗</div>
+          <div><h4>Parkir</h4><p>Luas untuk motor, mobil kecil hanya jam pagi. Amankan helm di meja depan.</p></div>
+        </div>
+        <a class="btn" id="mapsBtn" href="#" target="_blank" rel="noopener">Buka di Google Maps</a>
+      </div>
+      <div class="loc-map reveal">
+        <iframe id="mapFrame" src="https://maps.google.com/maps?q=Jl.%20Merdeka%20No.%20123%2C%20Jakarta%20Pusat&t=&z=15&ie=UTF8&iwloc=&output=embed" loading="lazy" title="Peta lokasi warung"></iframe>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="jadwal">
+  <div class="container">
+    <div class="sec-head reveal">
+      <span class="sec-tag" data-txt="jadTag">Jam Buka</span>
+      <h2 data-txt="jadTitle">Jadwal Buka & Tutup</h2>
+      <p data-txt="jadSub">Kami buka setiap hari. Datang saat ramai atau pesan lebih dulu lewat WhatsApp biar tak antre.</p>
+    </div>
+    <div class="hours-wrap reveal">
+      <div class="hours-grid">
+        <div id="hoursList"></div>
+        <div class="hours-note">
+          <p><strong data-txt="noticeTitle">Catatan:</strong></p>
+          <ul>
+            <li data-txt="notice1">🛵 Pesan antar via ojek online juga bisa (GoFood / GrabFood), atau langsung WA.</li>
+            <li data-txt="notice2">📅 Permintaan nasi kotak / prasmanan bisa dijadwalkan sebelumnya.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="container">
+    <a class="logo" href="index.html"><span class="logo-ico">🍚</span> Warung Barokah</a>
+    <p data-txt="footerText">Masakan rumahan hangat untuk semua · Jl. Merdeka No. 123, Jakarta Pusat · © <span id="year"></span></p>
+  </div>
+</footer>
+
+<a class="wa-float" href="https://wa.me/6281234567890?text=Halo%20Warung%20Barokah%2C%20saya%20mau%20pesan" aria-label="Pesan via WhatsApp">💬</a>
+
+<script src="config.js"></script>
+<script src="app.js"></script>
+<script>
+  function renderHours() {
+    var el = document.getElementById("hoursList");
+    el.innerHTML = "";
+    HOURS.forEach(function (h) {
+      var row = document.createElement("div");
+      row.className = "day-row" + (h.sum ? " sum" : "");
+      row.innerHTML = '<span>' + h.day + '</span><span class="open">' + h.open + " – " + h.close + "</span>";
+      el.appendChild(row);
+    });
+    var total = document.createElement("div");
+    total.className = "day-row sum";
+    var first = HOURS[0];
+    total.innerHTML = '<span>⏰ Buka Setiap Hari</span><span class="open">' + first.open + " – " + first.close + "</span>";
+    el.appendChild(total);
+  }
+
+  function renderTicker() {
+    var names = [];
+    Object.keys(MENU).forEach(function (id) {
+      MENU[id].items.forEach(function (it) { names.push(it.name + " <em>·</em> " + rupiah(it.price)); });
+    });
+    var half = names.map(function (n) { return "<span>" + n + "</span>"; }).join("");
+    document.getElementById("tickerTrack").innerHTML = half + half;
+  }
+
+  function renderSpecial() {
+    var wrap = document.getElementById("specialCard");
+    var day = todayName();
+    document.getElementById("specialDay").textContent = day;
+    var item = findMenuItem(MENU_SPESIAL[day]);
+    if (!item) {
+      wrap.innerHTML = '<div class="special-empty">Tidak ada menu spesial hari ' + day + '. Lihat menu lainnya di halaman <a href="menu.html" style="color:var(--orange-2);font-weight:700;">Menu</a> ya!</div>';
+      return;
+    }
+    var photo = '<div class="special-photo"><span>' + item.emoji + '</span>';
+    if (item.img) {
+      photo += '<img src="' + imgSrc(item) + '" alt="' + item.name + '" loading="lazy" onerror="this.style.display=\'none\'">';
+    }
+    photo += "</div>";
+    var hot = item.hot ? ' 🔥 Terlaris' : "";
+    wrap.innerHTML =
+      '<div class="special-card">' +
+        photo +
+        '<div class="special-body">' +
+          '<span class="special-tag">⭐ Spesial ' + day + '</span>' +
+          '<h3>' + item.name + hot + '</h3>' +
+          '<p class="special-desc">' + item.desc + '</p>' +
+          '<span class="special-price">' + rupiah(item.price) + '</span>' +
+          '<div class="special-cta">' +
+            '<a class="btn" href="' + waLink(item) + '" target="_blank" rel="noopener">🛒 Pesan via WA</a>' +
+            '<a class="btn ghost" href="menu.html">Lihat Semua Menu</a>' +
+          '</div>' +
+        '</div>' +
+      '</div>';
+  }
+
+  document.addEventListener("DOMContentLoaded", function () {
+    initBase();
+    renderHours();
+    renderTicker();
+    renderSpecial();
+  });
+</script>
+</body>
+</html>

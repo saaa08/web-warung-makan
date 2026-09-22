@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Warung Barokah — Menu & Harga</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Poppins:wght@700;800;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="top-blessing" data-txt="blessing"><span>٭</span> ATAS BERKAT ROCHMAT ALLOH YANG MAHA KUASA <span>٭</span></div>
+
+<header>
+  <div class="container nav">
+    <a class="logo" href="index.html"><span class="logo-ico">🍚</span> Warung Barokah</a>
+    <nav class="nav-links" id="navLinks">
+      <a href="index.html">Beranda</a>
+      <a href="menu.html" class="active">Menu</a>
+      <a href="index.html#lokasi">Lokasi</a>
+      <a href="index.html#jadwal">Jam Buka</a>
+      <a href="https://wa.me/6281234567890">Kontak</a>
+    </nav>
+    <a class="btn" data-txt="orderBtn" href="https://wa.me/6281234567890?text=Halo%20Warung%20Barokah%2C%20saya%20mau%20pesan">🛵 Pesan Sekarang</a>
+    <button class="burger" onclick="document.getElementById('navLinks').classList.toggle('open')">☰</button>
+  </div>
+</header>
+
+<section class="page-hero">
+  <div class="container">
+    <span class="sec-tag" data-txt="menuTag">Menu & Harga</span>
+    <h1 data-txt="menuTitle">Silahkan Pilih Menu Makanmu Hari Ini</h1>
+    <p data-txt="menuSub">Semua harga sudah termasuk porsi standar yang mengenyangkan.</p>
+  </div>
+</section>
+
+<section id="menu">
+  <div class="container">
+    <div class="tabs reveal" id="tabs"></div>
+    <div class="menu-grid" id="menuGrid"></div>
+  </div>
+</section>
+
+<footer>
+  <div class="container">
+    <a class="logo" href="index.html"><span class="logo-ico">🍚</span> Warung Barokah</a>
+    <p data-txt="footerText">Masakan rumahan hangat untuk semua · Jl. Merdeka No. 123, Jakarta Pusat · © <span id="year"></span></p>
+  </div>
+</footer>
+
+<a class="wa-float" href="https://wa.me/6281234567890?text=Halo%20Warung%20Barokah%2C%20saya%20mau%20pesan" aria-label="Pesan via WhatsApp">💬</a>
+
+<script src="config.js"></script>
+<script src="app.js"></script>
+<script>
+  var activeTab = "berat";
+
+  function renderTabs() {
+    var wrap = document.getElementById("tabs");
+    wrap.innerHTML = "";
+    Object.keys(MENU).forEach(function (id) {
+      var b = document.createElement("button");
+      b.className = "tab" + (id === activeTab ? " active" : "");
+      b.textContent = MENU[id].label;
+      b.onclick = function () { activeTab = id; renderTabs(); renderMenu(); };
+      wrap.appendChild(b);
+    });
+  }
+
+  function renderMenu() {
+    var grid = document.getElementById("menuGrid");
+    grid.innerHTML = "";
+    MENU[activeTab].items.forEach(function (it) {
+      var card = document.createElement("div");
+      card.className = "m-card";
+      var photo = '<div class="m-photo"><span>' + it.emoji + '</span>';
+      if (it.img) {
+        photo += '<img src="' + imgSrc(it) + '" alt="' + it.name + '" loading="lazy" onerror="this.style.display=\'none\'">';
+      }
+      photo += "</div>";
+      var badge = it.hot ? '<span class="m-badge">🔥 Terlaris</span>' : "";
+      var body =
+        '<div class="m-card-body">' +
+          '<span class="m-price">' + rupiah(it.price) + '</span>' +
+          badge +
+          '<h3>' + it.name + '</h3>' +
+          '<p>' + it.desc + '</p>' +
+          '<a class="m-order" href="' + waLink(it) + '" target="_blank" rel="noopener">🛒 Pesan via WA</a>' +
+        "</div>";
+      card.innerHTML = photo + body;
+      grid.appendChild(card);
+    });
+  }
+
+  document.addEventListener("DOMContentLoaded", function () {
+    initBase();
+    renderTabs();
+    renderMenu();
+  });
+</script>
+</body>
+</html>
